@@ -34,3 +34,5 @@
 *.auxlock
 
 *.sh
+
+*.vscode
