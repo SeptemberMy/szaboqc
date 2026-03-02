@@ -75,8 +75,8 @@ SCF)计算的细节,
 接下来对自旋轨道进行酉变换以导出正则Hartree-Fock方程.
 
 3.3节继续介绍Hartree-Fock理论的形式部分. 
-现推导并讨论两个与Hartree-Fock方程相关的重要定理：Koopman定理和Brillouin定理.
-第一个定理说的是Hartree-Fock轨道能量可以堪称离子化势和电子亲和度. 
+先推导并讨论两个与Hartree-Fock方程相关的重要定理：Koopmans定理和Brillouin定理.
+第一个定理将Hartree-Fock轨道能量解释为离子化势和电子亲和度. 
 第二个定理说的是两个Hartree-Fock行列式之间的矩阵元：如果两个行列式只差一个单激发, 那么矩阵元为零. 
 此定理在多行列式理论中非常重要. 
 最后, 作为微扰论的预备知识, 
@@ -247,7 +247,7 @@ Hartree-Fock理论中,
 当$\mathscr{K}_b(1)$作用在$\chi_a(1)$时会涉及到坐标交换：
 与(3.11)相比, (3.10)中$r_{12}^{-1}$右边的电子1和2的坐标交换了顺序. 
 不同于\emph{定域}的库伦算符, 人们一般说交换算符是\emph{非定域}算符, 
-因为在空间中任一点$\mathbf{x}_1$上, 并不存在一个简单的势能$\mathscr{K}_b(\mathbf{x}_1)$。 $\mathscr{K}_b(\mathbf{x}_1)$作用于$\chi_a(\mathbf{x}_1)$上所产生的结果依赖于$\chi$在全空间的值\footnote{
+因为在空间中任一点$\mathbf{x}_1$上, 并不存在一个简单的势能$\mathscr{K}_b(\mathbf{x}_1)$。 $\mathscr{K}_b(\mathbf{x}_1)$作用于$\chi_a(\mathbf{x}_1)$上所产生的结果依赖于$\chi_a$在全空间的值\footnote{
 	注意到\autoref{3.10}中的积分也涉及$\chi_a$即可理解这一点.
 }, 
 并非只依赖于$\chi_a$在$\mathbf{x}_1$一点的值, 这点在(3.10)的表达式中很明显. 
@@ -262,7 +262,7 @@ Hartree-Fock理论中,
 目前为止所得到Hartree-Fock方程写作：
 \begin{align}
 	\label{3.14}
-	\left[ h(1) + \sum_{b\neq a}\mathscr{J}_b(1) - \sum_{b\neq a}\mathscr{K}_b(1)   \right]\chi_b(1) = \epsilon_a\chi_a(1)
+	\left[ h(1) + \sum_{b\neq a}\mathscr{J}_b(1) - \sum_{b\neq a}\mathscr{K}_b(1)   \right]\chi_a(1) = \epsilon_a\chi_a(1)
 \end{align}
 它有本征值方程的形式, 
 但是方括号中的算符作用到不同的自旋轨道$\chi_a$上时, 
@@ -367,7 +367,7 @@ Hartree-Fock方程
 那么能量变为：
 \begin{align}
 	E[\tp+\delta\tp] & = \braket{\tp+\delta\tp|\hs|\tp+\delta\tp} \notag\\
-	& = E[\tp] + \{ \braket{\delta\tp|\hs|\tp} + \braket{\tp|\hs\delta\tp} \} + \cdots \notag\\
+	& = E[\tp] + \{ \braket{\delta\tp|\hs|\tp} + \braket{\tp|\hs|\delta\tp} \} + \cdots \notag\\
 	& = E[\tp] + \delta E + \cdots
 \end{align}
 其中$\delta E$叫作$E$的一阶变分, 
