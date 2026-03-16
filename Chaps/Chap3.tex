@@ -1178,7 +1178,7 @@ $\beta$的结果也一样,
 	& {}\quad + \sum_c^{N/2}\int\dd\omega_1\dd\omega_2\dd{r}_2\,\alpha^*(\omega_1)\psi_c^*(\mathbf{r}_2)\alpha^*(\omega_2)\twoe\psi_c(\mathbf{r}_2)\alpha(\omega_2)\alpha(\omega_1)\psi_j(\mathbf{r}_1)\notag\\
 	& {}\quad + \sum_c^{N/2}\int\dd\omega_1\dd\omega_2\dd{r}_2\,\,\alpha^*(\omega_1)\psi_c^*(\mathbf{r}_2)\beta^*(\omega_2)\twoe\psi_c(\mathbf{r}_2)\beta(\omega_2)\alpha(\omega_1)\psi_j(\mathbf{r}_1)\notag\\
 	& {}\quad - \sum_c^{N/2}\int\dd\omega_1\dd\omega_2\dd{r}_2\,\,\alpha^*(\omega_1)\psi_c^*(\mathbf{r}_2)\alpha^*(\omega_2)\twoe\psi_c(\mathbf{r}_1)\alpha(\omega_1)\alpha(\omega_2)\psi_j(\mathbf{r}_2)\notag\\
-	& {}\quad - \sum_c^{N/2}\int\dd\omega_1\dd\omega_2\dd{r}_2\,\alpha^*(\omega_1)\psi_c^*(\mathbf{r}_2)\beta^*(\omega_2)\twoe\psi_c(\mathbf{r}_1)\beta(\omega_1)\alpha(\omega_2)\psi_j(\mathbf{r}_1)\notag\\
+	& {}\quad - \sum_c^{N/2}\int\dd\omega_1\dd\omega_2\dd{r}_2\,\alpha^*(\omega_1)\psi_c^*(\mathbf{r}_2)\beta^*(\omega_2)\twoe\psi_c(\mathbf{r}_1)\beta(\omega_1)\alpha(\omega_2)\psi_j(\mathbf{r}_2)\notag\\
 	& = \epsilon_j\psi_j(\mathbf{r}_1)
 	\label{3.120}
 \end{align}
@@ -1196,7 +1196,7 @@ $\beta$的结果也一样,
 因此闭壳层Fock算符的形式为
 \begin{align}
 	\label{3.122}
-	f(\bfr_1) = h(\bfr_1) + \sum_a^{N/2}\int\dd{r}_2\,\psi_a^*(\bfr_2)(2-\scr{P}_{12})\psi_a(\bfr_2)
+	f(\bfr_1) = h(\bfr_1) + \sum_a^{N/2}\int\dd{r}_2\,\psi_a^*(\bfr_2)(2-\scr{P}_{12})\twoe\psi_a(\bfr_2)
 \end{align}
 或写成等价形式
 \begin{align}
@@ -1559,11 +1559,11 @@ Fock矩阵$\mathbf{F}$是Fock算符
 \end{align}
 在具体的基组$\{\phi_\mu\}$下, 
 $\mathbf{T,V^\mathrm{nucl}}$中的积分会具体地计算出来, 
-有一构成核\ha 矩阵. 
+构成核\ha 矩阵. 
 核\ha 矩阵与Fock矩阵不同, 
 在迭代计算的过程中只需被计算一次, 
 然后保持不变. 
-动能核核吸引积分的计算会在附录A讲述.
+动能和核吸引积分的计算会在附录A讲述.
 
 
 回到\autoref{3.148}的Fock矩阵表达式, 
@@ -1704,8 +1704,9 @@ $\mathbf{X}$必须是非奇异的,
 	\mathbf{X=Us}^{-1/2}
 \end{align}
 这就是说, 
-酉矩阵$\mathbf{U}$中的行要除以对应本征值的平方根：
+酉矩阵$\mathbf{U}$中的列要除以对应本征值的平方根：
 \begin{align}
+	\label{3.170}
 	X_{ij} = U_{ij}/s_{j}^{1/2}
 \end{align}
 将$\mathbf{X}$的定义\autoref{3.165}带入, 
@@ -1714,7 +1715,7 @@ $\mathbf{X}$必须是非奇异的,
 	\mathbf{X^\dagger SX} = (\mathbf{Us}^{-1/2})^\dagger\mathbf{SUs}^{-1/2} = \mathbf{s}^{-1/2}\mathbf{U^\dagger SUs}^{-1/2} = \mathbf{s}^{-1/2}\mathbf{ss}^{-1/2}=\mathbf{1}
 \end{align}
 这就证明$\mathbf{X=Us}^{-1/2}$也是一正交化变换矩阵. 
-从(3.170)可以看到, 
+从\autoref{3.170}可以看到, 
 若基组中存在(近)线性相关(即某些本征值$s_i$接近零.
 ), 
 则正交化手续会引发困难. 
@@ -1811,11 +1812,12 @@ SCF流程如下：
 	\item 计算所需的分子积分, $S_{\mu\nu},H_{\mu\nu}^\mathrm{core}, (\mu\nu|\lambda\sigma)$.
 	\item 对角化重叠矩阵$\mathbf{S}$, 用(3.167)或(3.169)得到变换矩阵$\mathbf{X}$.
 	\item 猜测一个密度矩阵$\mathbf{P}$.
-	\item 用密度矩阵$\mathbf{P}$计算(3.154)中的矩阵$\mathbf{G}$和双电子积分$(\mu\nu|\lambda\sigma)$.
+	\item 用密度矩阵$\mathbf{P}$和双电子积分$(\mu\nu|\lambda\sigma)$计算(3.154)中的矩阵$\mathbf{G}$.
 	\item $\mathbf{G}$加核\ha 矩阵得到Fock矩阵$\mathbf{F=H}^\mathrm{core}+\mathbf{G}$.
 	\item 计算变换后的Fock矩阵$\mathbf{F'=X^\dagger FX}$.
 	\item 对角化$\mathbf{F'}$得到$\mathbf{C'},\bm{\epsilon}$.
-	\item 根据(3.14)用$\mathbf{C}$构建新密度矩阵$\mathbf{P}$.
+	\item 计算$\mathbf{C}=\mathbf{XC'}$
+	\item 根据(3.145)用$\mathbf{C}$构建新密度矩阵$\mathbf{P}$.
 	\item 确定该过程是否收敛, 即确定(10)中密度矩阵是否与前一个密度矩阵在某种判据下相同. 若未收敛, 回到(5)用新密度矩阵计算.
 	\item 若收敛, 则用得到的解表示出$\mathbf{C,P,F}$等, 即计算期望值和其他想求的量.
 \end{enumerate}
@@ -2054,7 +2056,7 @@ $E_0$再加上核-核排斥势就得到总能$E_\mathrm{tot}$
 除了需要$\mathbf{P}$外, 
 额外仅需计算偶极积分
 \begin{align}
-	(\nu|x|\mu) = \int\dd{r}_1\,\phi_\mu^*(\bfr_1)x_1\phi_\mu(\bfr_1)
+	(\nu|x|\mu) = \int\dd{r}_1\,\phi_\nu^*(\bfr_1)x_1\phi_\mu(\bfr_1)
 \end{align}
 及$y,z$分量的对应值.
 
@@ -2643,7 +2645,7 @@ $V_{\mu\nu}^1,V_{\mu\nu}^2$分别描述第一个、第二个核的库伦吸引.
 		-0.6538&-0.5974\\-0.5974&-1.2266
 	\end{pmatrix}
 \end{align}
-若基函数是氢原子的解$(\pi)^{1/2}e^{-r}$, 
+若基函数是氢原子的解$(\pi)^{-1/2}e^{-r}$, 
 则$T_{11}$的值是$0.5$, 
 相当于氢原子中电子的动能, 
 $V_{11}^1=V_{22}^2$值为$-1.0$, 
