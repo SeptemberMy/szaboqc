@@ -9,17 +9,22 @@
 \usepackage{indentfirst} 
 \usepackage{graphicx} % Required for including pictures
 \graphicspath{{Pictures/}}
-\usepackage{multirow}
+\usepackage{xcolor} % Required for specifying colors by name
+%\definecolor{ocre}{RGB}{0,0,0} % Define the favorite color used for highlighting throughout the book
+\bibliographystyle{alpha}
 \usepackage{tikz,pgfplots} % Required for drawing custom shapes
 %\pgfplotsset{compat=newest}
+
+% Table
+\usepackage{multirow}
 \usepackage{booktabs,threeparttable
 } % Booktabs required for nicer horizontal rules in tables
 \usepackage[shortlabels]{enumitem}
 \setenumerate{leftmargin=*}
-\usepackage{xcolor} % Required for specifying colors by name
-%\definecolor{ocre}{RGB}{0,0,0} % Define the favorite color used for highlighting throughout the book
-\bibliographystyle{alpha}
-
+% adjust the width of tables to adapt it to the textwidth
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X} % New flag to centering the width-adapted columns
+\usepackage{float}
 
 %-------------------------------------------------------------------
 %	Chinese Settings
@@ -29,15 +34,13 @@
 \captionsetup{figurename={图}, tablename={表}}
 %\addto{\captionsenglish}{\renewcommand{\contentsname}{目\quad录}}
 \def\chntoday{\the\year~年~\the\month~月~\the\day~日}
-% adjust the width of tables to adapt it to the textwidth
-\usepackage{tabularx}
-\newcolumntype{Y}{>{\centering\arraybackslash}X} % New flag to centering the width-adapted columns
 
+
+% Font, math, chem
 \usepackage{amsmath}
 \usepackage{anyfontsize}
 \usepackage{amssymb}
 \usepackage{bm}
-
 \usepackage{mathtools} % For *rcases* environment
 \usepackage[scr=boondoxo, scrscaled=1]{mathalfa}
 \DeclareMathAlphabet{\mathrsfs}{U}{rsfs}{m}{n}
@@ -67,6 +70,15 @@
   section/format = \fontsize{8.5pt}{\baselineskip}\selectfont\bfseries\raggedright,
   subsection/format = \fontsize{8pt}{\baselineskip}\selectfont\bfseries\raggedright
 }
+\usepackage{chemformula}
+\usepackage{wasysym}
+%For the symbol \CheckedBox
+\usepackage{stackengine,scalerel}
+\newcommand\DSquare{\ThisStyle{\ensurestackMath{%
+			\stackinset{c}{}{c}{}{\scalebox{.5}{$\SavedStyle\blacksquare$}}
+			{\SavedStyle\square}}}}
+%For a filled box.
+%CR: https://tex.stackexchange.com/questions/553834/is-there-a-intermediate-checkedbox-symbol-in-latex
 
 %-----------------------------------------------------------------
 %	Page Headers
@@ -149,6 +161,8 @@
 \newcommand{\tu}{\begin{figure}[h]
 		\includegraphics[width=.5\textwidth]{q.png}
 \end{figure}}
+
+% TikZ
 % Feynman Diagram Setting
 \usetikzlibrary{arrows.meta}
 \newcommand{\midarrow}{\tikz \draw[-triangle 45] (0,0) -- +(.05,0);}
@@ -211,22 +225,13 @@
 
 \usetikzlibrary{calc}
 %\usepackage[compat=1.1.0]{tikz-feynman}
-\usepackage{float}
+
+% misc
 \renewcommand{\thefootnote}{\roman{footnote}} % Change the marks of footnotes to numbers
 \usepackage{blkarray} %分块矩阵
 \definecolor{darkred}{HTML}{990000}
 \usepackage[bookmarksnumbered=true, colorlinks=true, linkcolor=darkred, urlcolor=darkred]{hyperref}
-\usepackage{chemformula}
 
-
-\usepackage{wasysym}
-%For the symbol \CheckedBox
-\usepackage{stackengine,scalerel}
-\newcommand\DSquare{\ThisStyle{\ensurestackMath{%
-			\stackinset{c}{}{c}{}{\scalebox{.5}{$\SavedStyle\blacksquare$}}
-			{\SavedStyle\square}}}}
-%For a filled box.
-%CR: https://tex.stackexchange.com/questions/553834/is-there-a-intermediate-checkedbox-symbol-in-latex
 
 %-----------------------------------------------------------------
 %	Convinent abbreviations
