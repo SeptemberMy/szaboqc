@@ -1196,8 +1196,7 @@ h_0\chi_i^{(0)} = \epsilon_i^{(0)} \chi_i^{(0)}
 \end{align}
 我们用指标$a,b,c,\ldots$来记占据(空穴hole)自旋轨道, 
 用$r,s,t,\ldots$来记未占(粒子particle)自旋轨道. 
-波函数(6.
-33)是$\hs_0$的本征函数, 
+波函数(6.33)是$\hs_0$的本征函数, 
 本征值就是占据自旋轨道能量之和：
 \begin{align*}
 \hs_0\ket{\Psi_0} = \left( \sum_a\epsilon_a^{(0)} \right)\ket{\Psi_0}
@@ -1213,7 +1212,7 @@ E_0 & = \braket{\Psi_0|\hs|\Psi_0} = \braket{\Psi_0|\hs_0+\vs|\Psi_0}\notag\\
 在这种微扰是单粒子作用之和的特殊情形下, 
 系统的总\ha 为
 \begin{align}
-\hs = \hs_0 + \vs = \sum_i(h_0(i)+v(i)) = \sum_ih(i) 
+\hs = \hs_0 + \vs = \sum_i(h_0(i)+v(i)) = \sum_i h(i) 
 \end{align}
 也是一些单粒子作用之和. 
 因此可以找到一组精确的自旋轨道及其能量：
@@ -1241,8 +1240,7 @@ h\chi_i = (h_0+v)\chi_i = \epsilon_i\chi_i
 由于精确能量可写为占据轨道能量$\epsilon_a$之和, 
  我们简单地将每个$\epsilon_a$进行微扰展开, 
 然后将结果对所有占据自旋轨道求和. 
-由于6.
-1节中的一般性理论可以用于单粒子零阶\ha (即$h_0$)和单粒子微扰, 
+由于6.1节中的一般性理论可以用于单粒子零阶\ha (即$h_0$)和单粒子微扰, 
 我们立马得到：
 \begin{align}
 \epsilon_a & = \epsilon_a^{(0)} + \braket{a|v|a} + \sum_i'\frac{\braket{a|v|i}\braket{i|v|a}}{\epsilon_a^{(0)}-\epsilon_i^{(0)}} + \cdots\notag\\
@@ -1255,9 +1253,7 @@ h\chi_i = (h_0+v)\chi_i = \epsilon_i\chi_i
 \epsilon_a = \epsilon_a^{(0)} + v_{aa} + \sum_r\frac{v_{ar}v_{ra}}{\epsilon_a^{(0)}-\epsilon_r^{(0)}} + \sum_{b\neq a}\frac{v_{ab}v_{ba}}{\epsilon_a^{(0)}-\epsilon_b^{(0)}} + \cdots
 \end{align}
 当下我们要得到精确能量的微扰展开, 
-那么将(6.
-40)带入(6.
-38)可得
+那么将(6.40)带入(6.38)可得
 \begin{align}
 \scr{E}_0 = \sum_a\epsilon_a = \sum_av_{aa} + \sum_{ar}\frac{v_{ar}v_{ra}}{\epsilon_a^{(0)} - \epsilon_{r}^{(0)}} + \sum_{\substack{ab\\a\neq b}}\frac{v_{ab}v_{ba}}{\epsilon_a^{(0)}- \epsilon_{b}^{(0)}} + \cdots
 \end{align}
@@ -1286,12 +1282,10 @@ E_0^{(2)} & = \sum_{ar}\frac{v_{ar}v_{ra}}{\epsilon_a^{(0)} - \epsilon_r^{(0)}}
 \label{6.43c}
 \end{align}
 \end{subequations}
-可以看见$\ket{\Psi_0}$的能量(见(6.
-34))等于零阶与一阶能量之和(即$E_0 = E_0^{(0)}+E_0^{(1)}$).
+可以看见$\ket{\Psi_0}$的能量(见(6.34))等于零阶与一阶能量之和(即$E_0 = E_0^{(0)}+E_0^{(1)}$).
 
 
-式(6.
-43)中的求和遍及所有占据(空穴)和非占据(粒子)自旋轨道. 
+式(6.43)中的求和遍及所有占据(空穴)和非占据(粒子)自旋轨道. 
 由于矩阵元$v_{ij} = \braket{i|v|j}$仅当自旋轨道$i,j$自旋相同时非零, 
 所以对于闭壳层体系我们可以将该式重新写为对空间轨道的求和再乘以$2$:
 \begin{subequations}
@@ -1309,11 +1303,10 @@ E_0^{(2)} & = \sum_{ar}\frac{v_{ar}v_{ra}}{\epsilon_a^{(0)} - \epsilon_r^{(0)}}
 \begin{align*}
 E_0^{(2)} = \sum_{ar}\frac{v_{ar}v_{ra}}{\epsilon_a^{(0)} - \epsilon_r^{(0)}}
 \end{align*}
-你可以从二阶能量的一般表达式(式(6.
-12))开始, 
+你可以从二阶能量的一般表达式(式(6.12))开始, 
 将其用在$N$-电子体系中：
 \begin{align*}
-E_0^{(2)} = \sideset{}{'}\sum_n\frac{\left| \braket{\Psi_0|\sum_iv(i)\ket{n}}\right|^2}{E_0^{(0)} - E_n^{(0)}}
+E_0^{(2)} = \sideset{}{'}\sum_n\frac{\left| \braket{\Psi_0|\sum_i v(i)\ket{n}}\right|^2}{E_0^{(0)} - E_n^{(0)}}
 \end{align*}
 此处求和遍及除基态外的所有态.
 
@@ -1323,8 +1316,7 @@ E_0^{(2)} = \sideset{}{'}\sum_n\frac{\left| \braket{\Psi_0|\sum_iv(i)\ket{n}}\ri
 \ket{\Psi_a^r} = \ket{\chi_a^{(0)}\cdots\chi_{a-1}^{(0)}\chi_{r}^{(0)}\chi_{a+1}^{(0)}\chi_{N}^{(0)}}.
 \end{align*}
 \Next
-用式(6.
-15)中的一般表达式计算三阶能量$E_3^{(0)}.$
+用式(6.15)中的一般表达式计算三阶能量$E_3^{(0)}.$
 \begin{enumerate}[a.]
 	\item 证明
 		\begin{align*}
@@ -1353,14 +1345,11 @@ E_0^{(2)} = \sideset{}{'}\sum_n\frac{\left| \braket{\Psi_0|\sum_iv(i)\ket{n}}\ri
 \end{enumerate}
 }
 
-在5.
-3.
-2节, 
+在5.3.2节, 
 我们已用不同的多体方法在H\"uckel理论的框架下计算了$N$个碳原子组成的环多烯的共振能($N=2n=4\nu +2,\nu=1,2,\ldots$). 
 为说明给出介绍的方法我们用微扰论重新处理这个问题. 
 回忆共振能的定义——精确总能量(对角化H\"uckel矩阵并将所有占据轨道能量加和即得)与$N/2=n$个局域烯烃单元的能量之差. 
-第$i$个单元的占据(空穴)和非占据(粒子)轨道分别记为$\ket{i},\ket{i^*}$(见式(5.
-137)). 
+第$i$个单元的占据(空穴)和非占据(粒子)轨道分别记为$\ket{i},\ket{i^*}$(见式(5.137)). 
 总的\ha 可划分为：
 \begin{align}
 \hs = \hs_0 + \vs = \sum_ih_0(i) + \sum_iv(i)
@@ -1391,13 +1380,10 @@ E_0^{(2)} = \sideset{}{'}\sum_n\frac{\left| \braket{\Psi_0|\sum_iv(i)\ket{n}}\ri
 \lim\limits_{N\to\infty}E_R = (4/\pi-1)N\beta=0.2732N\beta
 \end{align}
 
-有了微扰项$v$的矩阵元(6.
-47)和零阶轨道能量(6.
-46)我们就能计算微扰能量. 
+有了微扰项$v$的矩阵元(6.47)和零阶轨道能量(6.46)我们就能计算微扰能量. 
 先从二阶能量开始. 
 我们处理的为闭壳层体系, 
-相应的式子就是(6.
-44c):
+相应的式子就是(6.44c):
 \begin{align}
 E_0^{(0)} = 2\sum_{ar}^{N/2}\frac{v_{ar}v_{ra}}{\epsilon^{(0)}_a - \epsilon^{(0)}_r} = 2 \sum_{ar}^{N/2}\frac{\braket{a|v|r}\braket{r|v|a}}{\epsilon^{(0)}_a - \epsilon^{(0)}_r}
 \end{align}
@@ -1410,8 +1396,7 @@ E_0^{(2)} = 2\sum_{i=1}^{n}\sum_{j=1}^{n}\frac{\braket{i|v|j^*}\braket{j^*|v|i}}
 式中我们用到了轨道能之间的差为$2\beta$. 
 将$i$固定, 
 很容易计算对$j$的求和, 
-因为只有当$j=i\pm1$时矩阵元才不为零(见式(6.
-47a)). 
+因为只有当$j=i\pm1$时矩阵元才不为零(见式(6.47a)). 
 因此
 \begin{align}
 E_0^{(2)} & = \frac{1}{\beta}\sum_{i=1}^{n}\braket{i|v|(i+1)^*}\braket{(i+1)^*|v|i} + \braket{i|v|(i-1)^*}\braket{(i-1)^*|v|i}\notag\\
@@ -1419,22 +1404,17 @@ E_0^{(2)} & = \frac{1}{\beta}\sum_{i=1}^{n}\braket{i|v|(i+1)^*}\braket{(i+1)^*|v
 \end{align}
 对于苯来说, 
 共振能就是$1.5\beta$, 
- 是精确值的0.
-75倍(即75\%). 
+ 是精确值的0.75倍(即75\%). 
 对于越大的体系, 
 这个结果的质量就越好. 
-比较(6.
-48)和(6.
-51)可以看见, 
+比较(6.48)和(6.51)可以看见, 
 $N$很大的时候, 
-二阶能量接近精确结果的91.
-5\%.
+二阶能量接近精确结果的91.5\%.
 
 
 现在用一种略微不同的角度来考虑以上的推导, 
 这能帮助我们组织更高阶的计算. 
-在(6.
-50)中固定$i$, 
+在(6.50)中固定$i$, 
 计算对$j$的求和, 
 注意到轨道$i$仅与$(i\pm1)^*$相互作用. 
 可用图形表示这一点：
@@ -1443,7 +1423,8 @@ i\to j^* \to i\leftrightarrow
 \begin{tikzpicture}[baseline={(0,-.1)},scale=1.2]
 \node(a)at (0,0){$i$};\node(b)at(1,1){$(i+1)^*$};\node(c)at(2,0){$i$};\node(d)at(1,-1){$(i-1)^*$};
 \draw (a)--node[above]{$+$}(b)--node[above]{$+$}(c)--node[below]{$-$}(d)--node[below]{$-$}(a);
-\end{tikzpicture}\leftrightarrow \sum_j\braket{i|v|j^*}\braket{j^*|v|i}
+\end{tikzpicture}
+\leftrightarrow \sum_j\braket{i|v|j^*}\braket{j^*|v|i}
 \end{equation*}
 图中正负号代表两轨道之间的矩阵元$\pm\beta/2$的正负. 
 对$j$的求和计算如下. 
@@ -1459,8 +1440,7 @@ i\to j^* \to i\leftrightarrow
 
 
 现在来计算三阶能量. 
-适用于闭壳层体系的表达式在练习6.
-4(e)中给出：
+适用于闭壳层体系的表达式在练习6.4(e)中给出：
 \begin{align}
 E_0^{(3)} = 2\sum_{ars}^{N/2}\frac{v_{ar}v_{rs}v_{sa}}{(\epsilon^{(0)}_a-\epsilon^{(0)}_r)(\epsilon^{(0)}_a-\epsilon^{(0)}_s)} - 2\sum_{abr}^{N/2}\frac{v_{ra}v_{ab}v_{br}}{(\epsilon^{(0)}_a-\epsilon^{(0)}_r)(\epsilon^{(0)}_b-\epsilon^{(0)}_r)}
 \end{align}
@@ -1485,8 +1465,7 @@ i\to j^* \to k^* \to i \longleftrightarrow
 此处要注意, 
 由于$i$不与$i^*,(i+2)^*,(i-2)^*$相互作用, 
 这些求和的值必须为零. 
-类似的说法对(6.
-52)中第二项也成立, 
+类似的说法对(6.52)中第二项也成立, 
 所以我们可以知道三阶共振能为零.
 
 
@@ -1511,8 +1490,7 @@ $j,k$求和的图表示为
 对应值为$(\beta/2)(-\beta/2)(-\beta/2)=\beta^3/8$, 
 2) $1\to3^*\to2^*\to1$, 
 对应值为$(-\beta/2)(-\beta/2)(\beta/2)=\beta^3/8$. 
-用(6.
-53)中的结果, 
+用(6.53)中的结果, 
 我们可知对$E_3^{(0)}$中第一项有
 \begin{align*}
 \frac{2}{(2\beta)^2} \sum_{i=1}^{3}[(\beta^3/8)+(\beta^3/8)] = \frac{3\beta}{8}
@@ -1565,7 +1543,8 @@ $N$很大时,
 \begin{align*}
 \scr{E}_0 = N\alpha - 2\sum_{j=-\nu}^{\nu}\left( \beta^2_1+\beta^2_2+2\beta_1\beta_2\cos\frac{2j\pi}{2\nu+1} \right)^\frac{1}{2}
 \end{align*}
-(请参见, 如 L. Salem, \textit{Molecular Orbital Theory of Conjugated Systems, Benjamin, New York, 1966, pp. 498-500}). 注意到当$\beta_1=\beta_2=\beta$时, 由于$2\cos^2\theta = (1+\cos2\theta)$且$\beta$是负数, 我们就回归到
+(请参见, 如 L. Salem, \textit{Molecular Orbital Theory of Conjugated Systems}, Benjamin, New York, 1966, pp. 498-500). 
+注意到当$\beta_1=\beta_2=\beta$时, 由于$2\cos^2\theta = (1+\cos2\theta)$且$\beta$是负数, 我们就回归到
 \begin{align*}
 \scr{E}_0 = N\alpha + 4\beta\sum_{j=-\nu}^{\nu}\cos\frac{j\pi}{2\nu+1}
 \end{align*}
@@ -1959,8 +1938,7 @@ E_0^{(2)} = 2\sum_{abrs}^{N/2}\frac{\braket{ab|rs}\braket{rs|ba}}{\epsilon_a + \
 \label{6.74}
 \end{align}
 \exercise{
-从\autoref{6.72}出发, 推导\autoref{6.73}和\autoref{6.74}, 
-.
+从\autoref{6.72}出发, 推导\autoref{6.73}和\autoref{6.74}.
 }
 按照同样的方式, 
 但更加繁琐一些, 
