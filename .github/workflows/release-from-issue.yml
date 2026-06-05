@@ -89,3 +89,12 @@ jobs:
               issue_number: context.issue.number,
               state: 'closed'
             });
+
+  call-release:
+    needs: release
+    if: needs.validate.outputs.should_proceed == 'true'
+    permissions:
+      actions: write
+    uses: ./.github/workflows/release.yml
+    with:
+      version: v${{ needs.validate.outputs.version }}
