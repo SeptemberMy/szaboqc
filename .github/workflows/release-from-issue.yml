@@ -1,0 +1,100 @@
+name: Release from Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  validate:
+    if: startsWith(github.event.issue.title, 'release ') || startsWith(github.event.issue.title, 'Release ')
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.extract.outputs.VERSION }}
+      should_proceed: ${{ steps.validate.outputs.should_proceed }}
+    steps:
+      - name: Extract version
+        id: extract
+        run: |
+          TITLE="${{ github.event.issue.title }}"
+          VERSION=$(echo "$TITLE" | grep -oP '(?<=[Rr]elease )v?\K\d+\.\d+\.\d+')
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+      
+      - name: Validate version
+        id: validate
+        run: |
+          VERSION="${{ steps.extract.outputs.VERSION }}"
+          
+          if git ls-remote --tags origin | grep -q "refs/tags/v$VERSION"; then
+            echo "Tag v$VERSION already exists!"
+            echo "should_proceed=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          LATEST=$(git ls-remote --tags origin | grep -oP 'refs/tags/v\K\d+\.\d+\.\d+$' | sort -V | tail -1)
+          if [ -n "$LATEST" ] && [ "$(printf '%s\n%s' "$LATEST" "$VERSION" | sort -V | tail -1)" != "$VERSION" ]; then
+            echo "Version v$VERSION is not newer than latest v$LATEST!"
+            echo "should_proceed=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          echo "should_proceed=true" >> $GITHUB_OUTPUT
+        continue-on-error: true
+  
+  release:
+    needs: validate
+    if: needs.validate.outputs.should_proceed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Update version in README
+        run: |
+          VERSION="${{ needs.validate.outputs.version }}"
+          sed -i "/Latest version:/s/\[[0-9.]\+\]/[${VERSION}]/" README.md
+      
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Release v${{ needs.validate.outputs.version }}"
+          git push
+      
+      - name: Create tag
+        run: |
+          git tag v${{ needs.validate.outputs.version }}
+          git push origin v${{ needs.validate.outputs.version }}
+      
+      - name: Success comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const version = '${{ needs.validate.outputs.version }}';
+            const releaseUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/releases/tag/v${version}`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `✅ **Release v${version} completed!**\n\n- 📝 Version bumped in README\n- 🏷️ Tag \`v${version}\` created\n- 🚀 Release: ${releaseUrl}`
+            });
+            
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });
+
+  call-release:
+    needs: release
+    if: needs.validate.outputs.should_proceed == 'true'
+    permissions:
+      actions: write
+    uses: ./.github/workflows/release.yml
+    with:
+      version: v${{ needs.validate.outputs.version }}
