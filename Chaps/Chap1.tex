@@ -296,7 +296,7 @@ $M$个数的集合$\left\{a_i\right\}, i = 1, 2, \dots, M$可以类似地看做�
 \end{equation}
 
 下面我们将介绍一些重要的定义。
-一个$N\times M$矩阵 $\mbf A$的\emph{伴随矩阵}(adjoint)\footnote{译者注：本书中 adjoint 译为"伴随矩阵"，指矩阵的转置共轭（即各元素取复共轭后再转置）。注意这与线性代数中另一种"伴随矩阵"（adjugate，即由代数余子式构成的矩阵）含义不同。}，
+一个$N\times M$矩阵 $\mbf A$的\emph{转置共轭矩阵}(adjoint)\footnote{译者注：本书先前的版本中 adjoint 曾译为"伴随矩阵"，此处指矩阵的转置共轭（即各元素取复共轭后再转置）。注意这与线性代数中另一种"伴随矩阵"（adjugate，即由代数余子式构成的矩阵）含义不同。}，
 记为$\mbf{A}^\dagger$，是一个$M \times N$的矩阵，其元素为：
 \begin{equation}
  \left(\mbf{A}^\dagger\right)_{ij} = A_{ji}^{\ast}
@@ -305,13 +305,13 @@ $M$个数的集合$\left\{a_i\right\}, i = 1, 2, \dots, M$可以类似地看做�
 即对矩阵$\mbf A$的每个元素取复共轭，
 并交换矩阵的行和列。
 如果$\mbf A$为实矩阵，
-则其伴随矩阵称为$\mbf A$的\emph{转置}。
+则其转置共轭矩阵称为$\mbf A$的\emph{转置}。
 
 \exercise{
  若$\mbf A$为维度$N \times M$的矩阵，$\mbf B$为$M \times K$矩阵，证明$\left( \mbf{A} \mbf{B} \right)^{\dagger} = \mbf{B}^\dagger \mbf{A}^\dagger$。
 }
 
-一个列矩阵的伴随矩阵为一个\emph{行矩阵}，
+一个列矩阵的转置共轭矩阵为一个\emph{行矩阵}，
 其元素为原矩阵元素的复共轭：
 \begin{equation}
  {\mbf a}^{\dagger} = 
@@ -335,7 +335,7 @@ $M$个数的集合$\left\{a_i\right\}, i = 1, 2, \dots, M$可以类似地看做�
 通过与\autoref{eq:1.4}相比，
 我们注意到，如果$\mbf a$和$\mbf b$均为实矩阵且$M$值为3时，
 上式即为两个三维矢量的标量积。
-对\autoref{eq:1.24}两边分别取其伴随矩阵，
+对\autoref{eq:1.24}两边分别取其转置共轭，
 并引用\autoref{ex:1.3} 的结论，
 我们得到如下关系：
 \begin{equation}
@@ -381,14 +381,18 @@ $M$个数的集合$\left\{a_i\right\}, i = 1, 2, \dots, M$可以类似地看做�
      \label{eq:1.35}
  \end{equation}
  
- \item 若矩阵$\mbf A$的逆矩阵与其伴随矩阵相等，则$\mbf A$为\emph{幺正}矩阵：
+ \item 若矩阵$\mbf A$的逆矩阵与其转置共轭矩阵相等，则$\mbf A$为\emph{幺正}矩阵：
  \begin{equation}
      {\mbf A}^{-1} = \madj{A}
      \label{eq:1.36}
  \end{equation} 
  一个实幺正矩阵被称为\emph{正交}阵。
  
- \item 自伴(self-adjoint)矩阵称为\emph{Hermitian}矩阵，即：
+ \item 转置共轭矩阵 等于自身(self-adjoint)的矩阵\footnote
+	 {译者注：如果直接按英文翻译的话，
+	 此处"自伴矩阵"似乎更能与英文对应。但为了顾名思义，
+	 译文中换了一种表述。}
+ 称为\emph{Hermitian}矩阵 ，即：
  \begin{subequations}
      \begin{equation}
      \madj{A} = {\mbf A} \\
@@ -561,7 +565,7 @@ c_2 \begin{vmatrix}
 \end{equation}
 这里 $\mbf a$是抽象的矢量 $\ket{a}$在基组 $\left\{\ket{i}\right\}$ 中的矩阵表示。
 \autoref{eq:1.27}提到，
-一个列矩阵$\mbf a$的伴随矩阵$\madj{a}$是一个行矩阵：
+一个列矩阵$\mbf a$的转置共轭矩阵$\madj{a}$是一个行矩阵：
 \begin{equation}
  \madj{a} = \begin{pmatrix}
      a_1^\ast & a_2^\ast &\cdots &a_N^\ast
@@ -698,14 +702,14 @@ c_2 \begin{vmatrix}
 \end{split}
 \]
 
-算符$\op{O}$的\emph{伴随}算符标记为$\oadj{O}$。
+算符$\op{O}$的\emph{转置共轭}算符标记为$\oadj{O}$。
 如果算符$\op{O}$作用在右矢$\ket{a}$上将之转变成$\ket{b}$，
-则其伴随算符将左矢$\bra{a}$转变成$\bra{b}$：
+则其转置共轭算符将左矢$\bra{a}$转变成$\bra{b}$：
 \begin{equation}
  \bra{a}\oadj{O} = \bra{b}
  \label{eq:1.57}
 \end{equation}
-上式与\autoref{eq:1.52}互为伴随。
+上式与\autoref{eq:1.52}互为转置共轭关系。
 在\autoref{eq:1.52}两边同左乘$\bra{c}$，
 \autoref{eq:1.57}两边同右乘$\ket{c}$，我们得到：
 \[
@@ -721,7 +725,7 @@ c_2 \begin{vmatrix}
  \label{eq:1.58}
 \end{equation}
 由于$a, b$和$c$为任意矢量，
-这样我们就证明了算符$\oadj{O}$的矩阵表示与算符$\op{O}$的矩阵表示的伴随矩阵相等：
+这样我们就证明了算符$\oadj{O}$的矩阵表示与算符$\op{O}$的矩阵表示的转置共轭矩阵相等：
 \begin{equation}
  \left\langle i\middle\vert \oadj{O}\middle\vert j\right\rangle \equiv \left(\mbf{O}^\dagger\right)_{ij} = {\Mele{j}{O}{i}}^\ast \equiv O_{ji}^\ast
  \label{eq:1.59}
@@ -775,7 +779,7 @@ Hermitian算符矩阵表示的矩阵元满足如下关系：
  \ket{i} = \mbf{1}\ket{i} = \sum_{\alpha}\ket{\alpha}\olp{\alpha}{i} = \sum_{\alpha} \ket{\alpha}U_{i\alpha}^\ast = \sum_{\alpha} \ket{\alpha}\left(\madj{U}\right)_{\alpha i}
  \label{eq:1.65}
 \end{equation}
-上式中我们用到了\autoref{eq:1.49}和伴随矩阵的定义，
+上式中我们用到了\autoref{eq:1.49}和转置共轭矩阵的定义，
 从而得到如下关系：
 \begin{equation}
  \olp{\alpha}{i} = {\olp{i}{\alpha}}^\ast = U_{i\alpha}^\ast = \left(\madj{U}\right)_{\alpha i}
@@ -905,11 +909,11 @@ Hermitian算符矩阵表示的矩阵元满足如下关系：
  
  \item {\bfseries Hermitian算符的本征矢量正交} 证明：对 Hermitian算符，我们有：
  \[\op{O}\ket{\beta} = \omega_\beta \ket{\beta}\]
- 其伴随式为：
+ 其转置共轭式为：
  \[\bra{\beta}\oadj{O} = \bra{\beta}\omega_\beta^\ast\]
  在前面的推导中，
  我们用到了\autoref{eq:1.57}，
- 以及一个数的伴随为其复共轭。
+ 以及一个数（视作的矩阵）的转置共轭为其复共轭。
  由于$\op{O}$是 Hermitian算符，
  $\omega_\beta$为实数，我们有：
  \begin{equation}
